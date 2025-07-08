@@ -3,8 +3,8 @@ import axios from "axios";
 import { exec } from "child_process";
 import { promisify } from "util";
 
-const API_KEY_1 = process.env.API_KEY_1;
-const API_KEY_2 = process.env.API_KEY_2;
+const API_KEY_1 = process.env.API_KEY_1 || "";
+const API_KEY_2 = process.env.API_KEY_2 || "";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=`;
 
 const execAsync = promisify(exec);
@@ -65,7 +65,7 @@ async function processSite(url, scriptFile, outputFile, API_KEY) {
           "Decode the following obfuscated script, extract, and retain only the relevant code that directly generates the 64-bit secret key.Remove all irrelevant, unused, or undefined code — keep just the cleaned-up JavaScript that performs the key generation.The cleaned-up script should be self-contained and functional, with the last line printing the generated key (using console.log), and do not wrap it inside any function.Do not include comments, explanations, or additional fluff — output code only.";
 
         extra_message += xor_value
-          ? `Also we have ${xor_value},so when you do mapping, xor each element with the ${xor_value}`
+          ? `Also we have ${xor_value},so when you do mapping, xor each element with the ${xor_value}. if the result is not a base64 string, just return the string directly that is defined.`
           : "";
 
         const prompt = match[0] + "\n" + extra_message;
@@ -115,19 +115,19 @@ async function main() {
     API_KEY_1
   );
 
-  await processSite(
-    "https://cloudvidz.net/js/player/m/v2/pro/embed-1.min.js?v=" + Date.now(),
-    "input.txt",
-    "rabbit.txt",
-    API_KEY_2
-  );
-  await processSite(
-    "https://streameeeeee.site/js/player/m/v2/pro/embed-1.min.js?v=" +
-      Date.now(),
-    "input.txt",
-    "flixhq_key.txt",
-    API_KEY_2
-  );
+  // await processSite(
+  //   "https://cloudvidz.net/js/player/m/v2/pro/embed-1.min.js?v=" + Date.now(),
+  //   "input.txt",
+  //   "rabbit.txt",
+  //   API_KEY_2
+  // );
+  // await processSite(
+  //   "https://streameeeeee.site/js/player/m/v2/pro/embed-1.min.js?v=" +
+  //     Date.now(),
+  //   "input.txt",
+  //   "flixhq_key.txt",
+  //   API_KEY_2
+  // );
 }
 
 main()
