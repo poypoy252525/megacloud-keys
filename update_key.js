@@ -3,10 +3,8 @@ import axios from "axios";
 import { exec } from "child_process";
 import { promisify } from "util";
 
-const API_KEY_1 =
-  process.env.API_KEY_1 || "AIzaSyCUn5xDUH31IUUj9gPkAkgg4_3ExFUhh2Y";
-const API_KEY_2 =
-  process.env.API_KEY_2 || "AIzaSyCUn5xDUH31IUUj9gPkAkgg4_3ExFUhh2Y";
+const API_KEY_1 = process.env.API_KEY_1;
+const API_KEY_2 = process.env.API_KEY_2;
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=`;
 
 const execAsync = promisify(exec);
