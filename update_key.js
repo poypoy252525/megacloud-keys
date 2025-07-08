@@ -121,13 +121,13 @@ async function main() {
   //   "rabbit.txt",
   //   API_KEY_2
   // );
-  // await processSite(
-  //   "https://streameeeeee.site/js/player/m/v2/pro/embed-1.min.js?v=" +
-  //     Date.now(),
-  //   "input.txt",
-  //   "flixhq_key.txt",
-  //   API_KEY_2
-  // );
+  await processSite(
+    "https://streameeeeee.site/js/player/m/v2/pro/embed-1.min.js?v=" +
+      Date.now(),
+    "input.txt",
+    "flixhq_key.txt",
+    API_KEY_2
+  );
 }
 
 main()
