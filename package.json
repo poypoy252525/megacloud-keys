@@ -9,6 +9,7 @@
     "child_process": "^1.0.2",
     "crypto-js": "^4.2.0",
     "dotenv": "^17.1.0",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "ts-node": "^10.9.2"
   }
 }
